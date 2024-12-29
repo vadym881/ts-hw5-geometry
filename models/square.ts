@@ -1,14 +1,11 @@
 import { AngleShape } from "./angle-shape";
 
 export class Square extends AngleShape {
-  sides: number[] = [];
-  constructor(color: string, public side: number) {
+  side: number;
+  constructor(color: string, side: number) {
     super("Square", color);
-  }
-
-  getSides(): number[] {
-    this.sides = [this.side, this.side, this.side, this.side];
-    return this.sides;
+    this.side = side;
+    this.sides = [side, side, side, side];
   }
 
   calculateArea(): number {

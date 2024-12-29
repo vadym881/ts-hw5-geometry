@@ -1,16 +1,14 @@
 import { AngleShape } from "./angle-shape";
 
 export class Rectangle extends AngleShape {
-  sides: number[] = [];
-  constructor(color: string, public side1: number, public side2: number) {
+  side1: number;
+  side2: number;
+  constructor(color: string, side1: number, side2: number) {
     super("Rectangle", color);
+    this.side1 = side1;
+    this.side2 = side2;
+    this.sides = [side1, side2, side1, side2];
   }
-
-  getSides(): number[] {
-    this.sides = [this.side1, this.side2, this.side1, this.side2];
-    return this.sides;
-  }
-
   calculateArea(): number {
     return this.side1 * this.side2;
   }

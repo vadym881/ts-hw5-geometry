@@ -1,9 +1,13 @@
-export type ShapeType = "Circle" | "Ellipse" | AngleType;
+import { IShape, ShapeType } from "../types";
 
-export type AngleType = "Rectangle" | "Square" | "Triangle" | "Polygon";
+export abstract class BaseShape implements IShape {
+  name: ShapeType;
+  color: string;
 
-export abstract class BaseShape {
-  constructor(public name: ShapeType, public color: string) {}
+  constructor(name: ShapeType, color: string) {
+    this.name = name;
+    this.color = color;
+  }
 
   abstract calculateArea(): number;
 
@@ -14,6 +18,5 @@ export abstract class BaseShape {
     console.log(`Color: ${this.color}`);
     console.log(`Area: ${this.calculateArea()}`);
     console.log(`Perimeter: ${this.calculatePerimeter()}`);
-    console.log();
   }
 }

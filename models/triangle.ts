@@ -30,4 +30,10 @@ export class Triangle extends AngleShape implements ITriangle {
       s * (s - this.side1) * (s - this.side2) * (s - this.side3)
     ).toFixed(2);
   }
+
+  printInfo(): void {
+    super.printInfo()
+    console.log(`Height: ${this.calcHeight}`)
+    console.log(`Type: ${this.getTriangleType()}`)
+  }
 }

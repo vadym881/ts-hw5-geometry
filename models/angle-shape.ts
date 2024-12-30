@@ -21,7 +21,7 @@ export abstract class AngleShape extends BaseShape {
   }
   printInfo(): void {
     super.printInfo();
-    console.log(this.sides);
-    console.log();
+    console.log(`Sides: ${this.sides}`);
+    this.printAreaFormula()
   }
 }

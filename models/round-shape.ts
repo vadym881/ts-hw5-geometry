@@ -9,6 +9,13 @@ export abstract class RoundShape extends BaseShape {
   }
 
   printDiameter(): void {
-    this.diameters.forEach((a) => console.log(a));
+    this.diameters.forEach((a, index) =>
+      console.log(`Diameter${index + 1}: ${a}`)
+    );
+  }
+
+  printInfo(): void {
+    super.printInfo();
+    this.printDiameter();
   }
 }

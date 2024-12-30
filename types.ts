@@ -4,7 +4,7 @@ export type AngleType = "Rectangle" | "Square" | "Triangle" | "Polygon";
 
 export type RoundType = "Circle" | "Ellipse";
 
-export type TriangleType = 'Isoscele' | 'Equilateral' | 'Versatile'
+export type TriangleType = "Isoscele" | "Equilateral" | "Versatile";
 
 export interface IShape {
   name: ShapeType;

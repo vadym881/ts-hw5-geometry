@@ -7,11 +7,4 @@ export class Square extends AngleShape {
     this.side = side;
     this.sides = [side, side, side, side];
   }
-
-  calculateArea(): number {
-    return this.side * this.side;
-  }
-  calculatePerimeter(): number {
-    return this.side * 4;
-  }
 }

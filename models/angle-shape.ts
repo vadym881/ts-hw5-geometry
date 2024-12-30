@@ -13,8 +13,12 @@ export abstract class AngleShape extends BaseShape {
   printAreaFormula(): void {
     console.log(this.calculateArea.toString());
   }
-  abstract calculateArea(): number;
-  abstract calculatePerimeter(): number;
+  calculateArea(): number {
+    return this.sides[0] * this.sides[1];
+  }
+  calculatePerimeter(): number {
+    return this.sides.reduce((a, b) => a + b);
+  }
   printInfo(): void {
     super.printInfo();
     console.log(this.sides);

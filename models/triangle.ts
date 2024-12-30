@@ -5,12 +5,7 @@ export class Triangle extends AngleShape implements ITriangle {
   side1: number;
   side2: number;
   side3: number;
-  constructor(
-    color: string,
-    side1: number,
-    side2: number,
-    side3: number
-  ) {
+  constructor(color: string, side1: number, side2: number, side3: number) {
     super("Triangle", color);
     this.side1 = side1;
     this.side2 = side2;
@@ -21,21 +16,18 @@ export class Triangle extends AngleShape implements ITriangle {
     const set = new Set(this.sides);
     if (set.size === 1) return "Equilateral";
     if (set.size === 2) return "Isoscele";
-    return 'Versatile'
+    return "Versatile";
   }
   calcHeight(base: number): number {
     if (!this.sides.includes(base)) {
-        throw new Error('Wrong base') 
+      throw new Error("Wrong base");
     }
-    return +((2 * this.calculateArea()) / base).toFixed(2)
+    return +((2 * this.calculateArea()) / base).toFixed(2);
   }
-  calculateArea(): number {
+  override calculateArea(): number {
     const s = this.calculatePerimeter() / 2;
     return +Math.sqrt(
       s * (s - this.side1) * (s - this.side2) * (s - this.side3)
     ).toFixed(2);
-  }
-  calculatePerimeter(): number {
-    return this.side1 + this.side2 + this.side3;
   }
 }

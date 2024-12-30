@@ -9,10 +9,4 @@ export class Rectangle extends AngleShape {
     this.side2 = side2;
     this.sides = [side1, side2, side1, side2];
   }
-  calculateArea(): number {
-    return this.side1 * this.side2;
-  }
-  calculatePerimeter(): number {
-    return (this.side1 + this.side2) * 2;
-  }
 }

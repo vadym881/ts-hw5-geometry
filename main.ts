@@ -1,5 +1,6 @@
 import { Circle } from "./models/circle";
 import { Cube } from "./models/cube";
+import { Cylinder } from "./models/cylinder";
 import { Ellipse } from "./models/ellipse";
 import { Polygon } from "./models/polygon";
 import { Rectangle } from "./models/rectangle";
@@ -50,3 +51,7 @@ console.log();
 const sphere = new Sphere("pink", 7);
 sphere.printInfo();
 console.log();
+
+const cylinder = new Cylinder('red', 7, 5)
+cylinder.printInfo()
+console.log()

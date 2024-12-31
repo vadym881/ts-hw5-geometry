@@ -1,7 +1,7 @@
 import { RoundType } from "../types";
-import { BaseShape } from "./base-shape";
+import { BaseShape2D } from "./base-shape-2d";
 
-export abstract class RoundShape extends BaseShape {
+export abstract class RoundShape extends BaseShape2D {
   diameters: number[];
   constructor(name: RoundType, color: string) {
     super(name, color);

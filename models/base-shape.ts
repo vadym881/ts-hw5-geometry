@@ -11,12 +11,9 @@ export abstract class BaseShape implements IShape {
 
   abstract calculateArea(): number;
 
-  abstract calculatePerimeter(): number;
-
   printInfo(): void {
     console.log(`Name: ${this.name}`);
     console.log(`Color: ${this.color}`);
     console.log(`Area: ${this.calculateArea()}`);
-    console.log(`Perimeter: ${this.calculatePerimeter()}`);
   }
 }

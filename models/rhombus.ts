@@ -1,8 +1,9 @@
+import { ColorEnum } from "../types";
 import { Square } from "./square";
 
 export class Rhombus extends Square {
   angle: number;
-  constructor(color: string, side: number, angle: number) {
+  constructor(color: ColorEnum, side: number, angle: number) {
     super(color, side);
     if (angle <= 90 || angle >= 180) {
         console.log('Angle should be between 90 and 180')

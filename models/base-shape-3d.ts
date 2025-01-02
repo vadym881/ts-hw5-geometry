@@ -1,8 +1,8 @@
-import { I3D, Shape3DType } from "../types";
+import { ColorEnum, I3D, Shape3DType } from "../types";
 import { BaseShape } from "./base-shape";
 
 export abstract class BaseShape3D extends BaseShape implements I3D {
-  constructor(name: Shape3DType, color: string) {
+  constructor(name: Shape3DType, color: ColorEnum) {
     super(name, color);
   }
 

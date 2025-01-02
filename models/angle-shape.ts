@@ -1,9 +1,9 @@
-import { AngleType } from "../types";
+import { AngleType, ColorEnum } from "../types";
 import { BaseShape2D } from "./base-shape-2d";
 
 export abstract class AngleShape extends BaseShape2D {
   sides: number[];
-  constructor(name: AngleType, color: string) {
+  constructor(name: AngleType, color: ColorEnum) {
     super(name, color);
     this.sides = [];
   }

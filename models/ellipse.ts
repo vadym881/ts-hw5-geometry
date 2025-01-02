@@ -1,9 +1,10 @@
+import { ColorEnum } from "../types";
 import { RoundShape } from "./round-shape";
 
 export class Ellipse extends RoundShape {
   diameter1: number;
   diameter2: number;
-  constructor(color: string, diameter1: number, diameter2: number) {
+  constructor(color: ColorEnum, diameter1: number, diameter2: number) {
     super("Ellipse", color);
     this.diameter1 = diameter1;
     this.diameter2 = diameter2;

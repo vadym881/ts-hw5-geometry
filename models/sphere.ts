@@ -1,8 +1,9 @@
+import { ColorEnum } from "../types";
 import { BaseShape3D } from "./base-shape-3d";
 
 export class Sphere extends BaseShape3D {
   diameter: number;
-  constructor(color: string, diameter: number) {
+  constructor(color: ColorEnum, diameter: number) {
     super("Sphere", color);
     this.diameter = diameter;
   }

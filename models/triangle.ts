@@ -1,11 +1,11 @@
-import { ITriangle, TriangleType } from "../types";
+import { ColorEnum, ITriangle, TriangleType } from "../types";
 import { AngleShape } from "./angle-shape";
 
 export class Triangle extends AngleShape implements ITriangle {
   side1: number;
   side2: number;
   side3: number;
-  constructor(color: string, side1: number, side2: number, side3: number) {
+  constructor(color: ColorEnum, side1: number, side2: number, side3: number) {
     super("Triangle", color);
     this.side1 = side1;
     this.side2 = side2;

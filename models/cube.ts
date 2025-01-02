@@ -1,10 +1,11 @@
+import { ColorEnum } from "../types";
 import { BaseShape3D } from "./base-shape-3d";
 import { Square } from "./square";
 
 export class Cube extends BaseShape3D {
   side: number;
   facet: Square;
-  constructor(color: string, side: number) {
+  constructor(color: ColorEnum, side: number) {
     super("Cube", color);
     this.side = side;
     this.facet = new Square(color, side);

@@ -1,10 +1,10 @@
-import { IShape, ShapeType } from "../types";
+import { ColorEnum, IShape, ShapeType } from "../types";
 
 export abstract class BaseShape implements IShape {
   name: ShapeType;
-  color: string;
+  color: ColorEnum;
 
-  constructor(name: ShapeType, color: string) {
+  constructor(name: ShapeType, color: ColorEnum) {
     this.name = name;
     this.color = color;
   }

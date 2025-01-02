@@ -1,6 +1,20 @@
+export enum ColorEnum {
+  "black",
+  "white",
+  "red",
+  "blue",
+  "yellow",
+  "green",
+  "orange",
+  "pink",
+  "purple",
+  "brown",
+  "grey",
+}
+
 export type ShapeType = Shape2DType | Shape3DType;
 
-export type Shape3DType = "Cube" | "Sphere" | "Cylinder";
+export type Shape3DType = "Cube" | "Sphere" | "Cylinder" | "Cone";
 
 export type Shape2DType = AngleType | RoundType;
 
@@ -18,7 +32,7 @@ export type TriangleType = "Isoscele" | "Equilateral" | "Versatile";
 
 export interface IShape {
   name: ShapeType;
-  color: string;
+  color: ColorEnum;
 
   calculateArea(): number;
 

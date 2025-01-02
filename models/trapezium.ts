@@ -1,3 +1,4 @@
+import { ColorEnum } from "../types";
 import { AngleShape } from "./angle-shape";
 
 export class Trapezium extends AngleShape {
@@ -6,7 +7,7 @@ export class Trapezium extends AngleShape {
   side1: number;
   side2: number;
   constructor(
-    color: string,
+    color: ColorEnum,
     top: number,
     bottom: number,
     side1: number,

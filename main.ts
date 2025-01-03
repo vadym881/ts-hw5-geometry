@@ -11,7 +11,8 @@ import { Square } from "./models/square";
 import { Trapezium } from "./models/trapezium";
 import { Triangle } from "./models/triangle";
 import { ColorEnum } from "./types";
-import { generateNumber } from "./utils/generate-number";
+import { createShape } from "./utils/create-shape";
+import { generateColorEnum, generateNumber } from "./utils/generate-number";
 
 const square = new Square(ColorEnum.red, 5);
 square.printInfo();
@@ -62,6 +63,3 @@ console.log();
 const cone = new Cone(ColorEnum.orange, 6, 4);
 cone.printInfo();
 console.log();
-
-console.log(generateNumber(1));
-console.log(generateNumber(2));

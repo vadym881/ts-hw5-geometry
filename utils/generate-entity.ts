@@ -9,12 +9,13 @@ export const generateNumber = (base: number): number => {
 };
 
 export const generateAngle = (): number => {
-  let result = 179;
+  const maxAngle = 180;
+  let result = 0;
   do {
-    result = 179;
+    result = maxAngle;
     result *= Math.random();
     result = +result.toFixed(0);
-  } while (result <= 90);
+  } while (result <= 90 || result === maxAngle);
   return result;
 };
 

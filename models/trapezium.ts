@@ -14,11 +14,13 @@ export class Trapezium extends AngleShape {
     side2: number
   ) {
     super("Trapezium", color);
-    if (top > bottom) {
-      console.log("Top couldn't be greater than bottom");
+    if (top < bottom) {
+      this.top = top;
+      this.bottom = bottom;
+    } else {
+      this.top = bottom;
+      this.bottom = top;
     }
-    this.top = top;
-    this.bottom = bottom;
     this.side1 = side1;
     this.side2 = side2;
     this.sides = [top, bottom, side1, side2];
@@ -38,11 +40,11 @@ export class Trapezium extends AngleShape {
   }
 
   calculateHeight(): number {
-    return +((2 * this.calculateArea()) / (this.top + this.bottom)).toFixed(2)
+    return +((2 * this.calculateArea()) / (this.top + this.bottom)).toFixed(2);
   }
 
   printInfo(): void {
-    super.printInfo()
-    console.log(`Height: ${this.calculateHeight()}`)      
+    super.printInfo();
+    console.log(`Height: ${this.calculateHeight()}`);
   }
 }

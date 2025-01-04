@@ -10,6 +10,9 @@ export enum ColorEnum {
   "purple",
   "brown",
   "grey",
+  "turquoise",
+  "burgundy",
+  "violet",
 }
 
 export type ShapeType = Shape2DType | Shape3DType;

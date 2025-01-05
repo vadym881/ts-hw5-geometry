@@ -6,6 +6,7 @@ export class Polygon extends AngleShape {
     super("Polygon", color);
     if (polygonSides.length < 5) {
       console.log("Too few sides to build polygon");
+      return;
     }
     this.sides = polygonSides;
   }

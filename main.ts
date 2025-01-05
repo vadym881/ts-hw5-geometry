@@ -1,69 +1,53 @@
+import { BaseShape2D } from "./models/base-shape-2d";
+import { BaseShape3D } from "./models/base-shape-3d";
 import { Circle } from "./models/circle";
-import { Cone } from "./models/cone";
-import { Cube } from "./models/cube";
-import { Cylinder } from "./models/cylinder";
-import { Ellipse } from "./models/ellipse";
-import { Polygon } from "./models/polygon";
-import { Rectangle } from "./models/rectangle";
-import { Rhombus } from "./models/rhombus";
 import { ShapeStorage } from "./models/shape-storage";
-import { Sphere } from "./models/sphere";
-import { Square } from "./models/square";
-import { Trapezium } from "./models/trapezium";
 import { Triangle } from "./models/triangle";
-import { ColorEnum } from "./types";
-import { fillStorage } from "./utils/fill-storage";
 
-// const square = new Square(ColorEnum.red, 5);
-// square.printInfo();
-// console.log(`Number of sides: ${square.getNumberOfSides()}`);
-// console.log();
+const { shapes } = new ShapeStorage();
 
-// const rectangle = new Rectangle(ColorEnum.blue, 4, 5);
-// rectangle.printInfo();
-// console.log();
+let circles = shapes.filter((s) => s instanceof Circle);
+//console.log(circles);
+circles = circles.map((s) => {
+  return new Circle(s.color, s.diameter * 2);
+});
+//console.log(circles);
 
-// const triangle = new Triangle(ColorEnum.green, 3, 4, 5);
-// triangle.printInfo();
-// console.log(`Number of sides: ${triangle.getNumberOfSides()}`);
-// console.log();
+let filteredShapes = shapes.filter((s) => s.calculateArea() > 100);
+const shapes2D = shapes
+  .filter((s) => s instanceof BaseShape2D)
+  .filter((s) => s.calculatePerimeter() > 30)
+  .map((s) => s.name);
+const shapes3D = shapes
+  .filter((s) => s instanceof BaseShape3D)
+  .filter((s) => s.calculateVolume() > 100);
+filteredShapes = shapes.filter((s) => s.name.length < 5);
+const filteredShapesMap = filteredShapes.map((s) => s.color);
+//console.log(filteredShapes);
 
-// const circle = new Circle(ColorEnum.yellow, 6);
-// circle.printInfo();
-// console.log();
+shapes.sort((a, b) => b.calculateArea() - a.calculateArea());
+shapes
+  .filter((s) => !(s instanceof Triangle))
+  //.filter((s) => Number.isNaN(s.calculateArea()))
+  .forEach((s) => {
+    s.printInfo();
+    console.log();
+  });
 
-// const ellipse = new Ellipse(ColorEnum.orange, 3, 8);
-// ellipse.printInfo();
-// console.log();
+const totalArea = shapes
+  .map((s) => s.calculateArea())
+  //.filter((s) => !Number.isNaN(s))
+  .reduce((a, b) => a + b);
+console.log(totalArea);
 
-// const polygon = new Polygon(ColorEnum.pink, [1, 2]);
-// polygon.printInfo();
-// console.log();
+const totalPerimeter = shapes
+  .filter((s) => s instanceof BaseShape2D)
+  .map((s) => s.calculatePerimeter())
+  .reduce((a, b) => a + b);
+console.log(totalPerimeter);
 
-// const trapezium = new Trapezium(ColorEnum.purple, 2, 4, 3, 5);
-// trapezium.printInfo();
-// console.log();
-
-// const rhombus = new Rhombus(ColorEnum.yellow, 5, 120);
-// rhombus.printInfo();
-// console.log();
-
-// const cube = new Cube(ColorEnum.blue, 5);
-// cube.printInfo();
-// console.log();
-
-// const sphere = new Sphere(ColorEnum.pink, 7);
-// sphere.printInfo();
-// console.log();
-
-// const cylinder = new Cylinder(ColorEnum.red, 7, 5);
-// cylinder.printInfo();
-// console.log();
-
-// const cone = new Cone(ColorEnum.orange, 6, 4);
-// cone.printInfo();
-// console.log();
-
-const storage = new ShapeStorage();
-fillStorage(storage);
-storage.printItems();
+const totalVolume = shapes
+  .filter((s) => s instanceof BaseShape3D)
+  .map((s) => s.calculateVolume())
+  .reduce((a, b) => a + b);
+console.log(totalVolume)

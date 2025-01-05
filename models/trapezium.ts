@@ -14,6 +14,10 @@ export class Trapezium extends AngleShape {
     side2: number
   ) {
     super("Trapezium", color);
+    if (top===bottom) {
+      console.log('Top should be less then bottom')
+      return;
+    }
     if (top < bottom) {
       this.top = top;
       this.bottom = bottom;

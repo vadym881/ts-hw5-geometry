@@ -5,12 +5,19 @@ export class Triangle extends AngleShape implements ITriangle {
   side1: number;
   side2: number;
   side3: number;
+  heron: number;
   constructor(color: ColorEnum, side1: number, side2: number, side3: number) {
     super("Triangle", color);
     this.side1 = side1;
     this.side2 = side2;
     this.side3 = side3;
     this.sides = [side1, side2, side3];
+    const halfPerim = this.calculatePerimeter() / 2;
+    this.heron = halfPerim * (halfPerim - side1) * (halfPerim - side2) * (halfPerim - side3);
+    if (this.heron <=0) {
+      console.log('Impossible to build triangle')
+      return;
+    }   
   }
   getTriangleType(): TriangleType {
     const set = new Set(this.sides);
@@ -25,10 +32,7 @@ export class Triangle extends AngleShape implements ITriangle {
     return +((2 * this.calculateArea()) / base).toFixed(2);
   }
   override calculateArea(): number {
-    const s = this.calculatePerimeter() / 2;
-    return +Math.sqrt(
-      s * (s - this.side1) * (s - this.side2) * (s - this.side3)
-    ).toFixed(2);
+    return +Math.sqrt(this.heron).toFixed(2);
   }
 
   printInfo(): void {

@@ -22,11 +22,29 @@ export function createShape(shapeType: ShapeType): BaseShape {
   let instance!: BaseShape;
   const color = generateColorEnum();
   const angle = generateAngle();
-  const param1 = generateNumber(1);
-  const param2 = generateNumber(1);
-  const param3 = generateNumber(1);
+  let param1 = generateNumber(1);
+  let param2 = generateNumber(1);
+  let param3 = generateNumber(1);
   const param4 = generateNumber(1);
   const param5 = generateNumber(1);
+
+  if (shapeType === "Trapezium") {
+    while (param1 === param2) {
+      param2 = generateNumber(1);
+    }
+  }
+
+  if (shapeType === "Triangle") {
+    let halfPerim = (param1 + param2 + param3)/2
+    let heron = halfPerim * (halfPerim - param1) * (halfPerim - param2) * (halfPerim - param3);
+    while (heron <= 0) {
+      param1 = generateNumber(1);
+      param2 = generateNumber(1);
+      param3 = generateNumber(1);
+      halfPerim = (param1 + param2 + param3)/2
+      heron = halfPerim * (halfPerim - param1) * (halfPerim - param2) * (halfPerim - param3);
+    }
+  }
 
   switch (shapeType) {
     case "Rectangle":
@@ -66,6 +84,6 @@ export function createShape(shapeType: ShapeType): BaseShape {
       instance = new Cone(color, param1, param2);
       break;
   }
-  
+
   return instance;
 }

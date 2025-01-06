@@ -17,32 +17,32 @@ import {
   generateColorEnum,
   generateNumber,
 } from "./generate-entity";
+import { getValidationExpression } from "./validate-triangle";
 
 export function createShape(shapeType: ShapeType): BaseShape {
   let instance!: BaseShape;
+  const base = 1;
   const color = generateColorEnum();
   const angle = generateAngle();
-  let param1 = generateNumber(1);
-  let param2 = generateNumber(1);
-  let param3 = generateNumber(1);
-  const param4 = generateNumber(1);
-  const param5 = generateNumber(1);
+  let param1 = generateNumber(base);
+  let param2 = generateNumber(base);
+  let param3 = generateNumber(base);
+  const param4 = generateNumber(base);
+  const param5 = generateNumber(base);
 
   if (shapeType === "Trapezium") {
     while (param1 === param2) {
-      param2 = generateNumber(1);
+      param2 = generateNumber(base);
     }
   }
 
   if (shapeType === "Triangle") {
-    let halfPerim = (param1 + param2 + param3)/2
-    let heron = halfPerim * (halfPerim - param1) * (halfPerim - param2) * (halfPerim - param3);
+    let heron = getValidationExpression(param1, param2, param3)
     while (heron <= 0) {
-      param1 = generateNumber(1);
-      param2 = generateNumber(1);
-      param3 = generateNumber(1);
-      halfPerim = (param1 + param2 + param3)/2
-      heron = halfPerim * (halfPerim - param1) * (halfPerim - param2) * (halfPerim - param3);
+      param1 = generateNumber(base);
+      param2 = generateNumber(base);
+      param3 = generateNumber(base);
+      heron = getValidationExpression(param1, param2, param3)
     }
   }
 

@@ -1,4 +1,5 @@
 import { ColorEnum, ITriangle, TriangleType } from "../types";
+import { getValidationExpression } from "../utils/validate-triangle";
 import { AngleShape } from "./angle-shape";
 
 export class Triangle extends AngleShape implements ITriangle {
@@ -12,8 +13,7 @@ export class Triangle extends AngleShape implements ITriangle {
     this.side2 = side2;
     this.side3 = side3;
     this.sides = [side1, side2, side3];
-    const halfPerim = this.calculatePerimeter() / 2;
-    this.heron = halfPerim * (halfPerim - side1) * (halfPerim - side2) * (halfPerim - side3);
+    this.heron = getValidationExpression(side1, side2, side3)
     if (this.heron <=0) {
       console.log('Impossible to build triangle')
       return;

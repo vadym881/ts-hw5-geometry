@@ -3,6 +3,7 @@ import { BaseShape3D } from "./models/base-shape-3d";
 import { Circle } from "./models/circle";
 import { ShapeStorage } from "./models/shape-storage";
 import { Triangle } from "./models/triangle";
+import { ColorEnum } from "./types";
 
 const { shapes } = new ShapeStorage();
 
@@ -30,24 +31,28 @@ shapes
   .filter((s) => !(s instanceof Triangle))
   //.filter((s) => Number.isNaN(s.calculateArea()))
   .forEach((s) => {
-    s.printInfo();
-    console.log();
+    // s.printInfo();
+    // console.log();
   });
 
 const totalArea = shapes
   .map((s) => s.calculateArea())
   //.filter((s) => !Number.isNaN(s))
   .reduce((a, b) => a + b);
-console.log(totalArea);
+//console.log(totalArea);
 
 const totalPerimeter = shapes
   .filter((s) => s instanceof BaseShape2D)
   .map((s) => s.calculatePerimeter())
   .reduce((a, b) => a + b);
-console.log(totalPerimeter);
+//console.log(totalPerimeter);
 
 const totalVolume = shapes
   .filter((s) => s instanceof BaseShape3D)
   .map((s) => s.calculateVolume())
   .reduce((a, b) => a + b);
-console.log(totalVolume)
+//console.log(totalVolume)
+
+console.log(shapes.length)
+// const testShape = {...shapes[0]}
+// console.log(shapes.includes(testShape))
